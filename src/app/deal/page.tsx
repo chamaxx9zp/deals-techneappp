@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Navbar from './Navbar';
-
+import HeroSection from './HeroSection';
 
 function Page() {
 //   const [deal, setDeal] = useState(null);
@@ -25,11 +25,10 @@ function Page() {
 
   return (
     <>
-    <Navbar/>
-    
-
+      <Navbar />
+      <HeroSection/>
+     
     </>
-   
   );
 }
 

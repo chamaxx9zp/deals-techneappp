@@ -13,6 +13,11 @@ const nextConfig: NextConfig = {
         hostname: 'api.techneapp-staging.site',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        pathname: '/**',
+      },
     ],
   },
 };
