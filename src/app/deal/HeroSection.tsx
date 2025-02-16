@@ -50,7 +50,7 @@ function HeroSection() {
             </div>
           </div>
 
-          <div className="invisible md:visible grid grid-cols-1">
+          <div className="hidden md:block grid-cols-1">
 
             <div className="bg-[#F5943C] rounded-lg shadow-lg">
               <div className="p-4">
@@ -96,7 +96,7 @@ function HeroSection() {
 
           </div>
 
-          <div className="visible md:invisible">
+          <div className="block md:hidden">
             <div className="flex">
               <div className="w-2/3">
                 <h2 className="text-xl md:text-3xl font-bold mb-6">

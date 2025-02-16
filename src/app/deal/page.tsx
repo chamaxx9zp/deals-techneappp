@@ -1,10 +1,15 @@
 'use client';
-import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Navbar from './Navbar';
 import HeroSection from './HeroSection';
+import TabSection from './TabSection';
+import { Button } from 'antd';
+
+
 
 function Page() {
+
+
 //   const [deal, setDeal] = useState(null);
 
 //   useEffect(() => {
@@ -22,12 +27,12 @@ function Page() {
 
 //   if (!deal) return <div>Loading...</div>;
 
-
   return (
     <>
       <Navbar />
-      <HeroSection/>
-     
+      <HeroSection />
+      <TabSection/>
+
     </>
   );
 }
