@@ -10,10 +10,10 @@ const Highlight = React.forwardRef<HTMLDivElement>((_, ref) => {
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
   return (
-    <section ref={ref} className="min-h-screen pb-16">
+    <section ref={ref} className="pb-16">
       <h2 className="text-4xl font-bold text-[#E85D24] mb-8">HIGHLIGHTS</h2>
       <div className="grid md:grid-cols-2 gap-8 items-center">
-        <div className="relative h-[400px] rounded-lg overflow-hidden">
+        <div className="relative md:h-[400px] h-[270px] rounded-lg overflow-hidden">
           <Image
             src="https://images.unsplash.com/photo-1613425653628-23fd58c3c2b1?w=800&h=400&fit=crop"
             alt="Beach view with palm trees"

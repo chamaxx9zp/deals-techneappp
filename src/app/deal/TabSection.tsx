@@ -35,7 +35,7 @@ function TabSection() {
   const scrollToSection = (sectionId: string) => {
     const section = sectionsRef.current[sectionId];
     if (section) {
-      const offset = 100; 
+      const offset = 180; 
       const sectionPosition = section.offsetTop - offset;
       window.scrollTo({ top: sectionPosition, behavior: "smooth" });
     }
@@ -64,18 +64,18 @@ function TabSection() {
         <div className="grid md:grid-cols-3 grid-cols-1">
           <div className="col-span-2">
             <div className="min-h-screen bg-gray-50">
-              <div className="sticky top-0 z-50 bg-white">
+              <div className="sticky top-[74px] md:top-[88px] z-50 backdrop-blur-2xl bg-[#8B1D3D]/10 rounded-lg">
                 <div className="relative max-w-7xl mx-auto">
                   <button
                     onClick={() => scrollTabs("left")}
-                    className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md p-2 rounded-full hover:bg-gray-50"
+                    className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md p-2 rounded-full hover:bg-gray-50 md:block hidden"
                   >
                     <ChevronLeft className="h-5 w-5" />
                   </button>
 
                   <div
                     ref={tabsRef}
-                    className="overflow-x-auto scrollbar-hide px-12"
+                    className="overflow-x-auto scrollbar-hide md:px-12 px-2"
                   >
                     <div className="flex space-x-2 py-4">
                       {tabs.map((tab) => {
@@ -108,7 +108,7 @@ function TabSection() {
 
                   <button
                     onClick={() => scrollTabs("right")}
-                    className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md p-2 rounded-full hover:bg-gray-50"
+                    className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md p-2 rounded-full hover:bg-gray-50 md:block hidden"
                   >
                     <ChevronRight className="h-5 w-5" />
                   </button>

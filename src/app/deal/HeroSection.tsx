@@ -20,11 +20,17 @@ function HeroSection() {
 
   return (
     <>
- <section className="px-4 md:px-10 mt-6">
+      <section className="px-4 md:px-10 mt-24">
         <div className="grid md:grid-cols-3 grid-cols-1 gap-5">
           <div className="md:col-span-2">
             <div className="overflow-hidden rounded-lg">
-              <div className="relative md:h-[450px] h-[250px]">
+              <div className="md:block hidden">
+                <h2 className=" md:text-3xl font-bold mb-4">
+                  A 6-Day Trek on Kilimanjaro's Machame Route 🏔️⛺️👢
+                </h2>
+              </div>
+
+              <div className="relative w-full h-[300px] md:h-[400px]">
                 <Image
                   src={images[currentImageIndex]}
                   alt="Kilimanjaro"
@@ -32,12 +38,12 @@ function HeroSection() {
                   className="object-cover rounded-lg"
                 />
               </div>
-              <div className="flex gap-4 mt-4">
+              <div className="mt-4 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2 md:gap-4 overflow-x-auto">
                 {images.map((img, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentImageIndex(index)}
-                    className="relative w-1/3 h-[80px] md:h-[150px] rounded-lg overflow-hidden"
+                    className="relative w-full h-[80px] md:h-[120px] rounded-lg overflow-hidden border-2"
                   >
                     <Image
                       src={img}
@@ -48,17 +54,11 @@ function HeroSection() {
                   </button>
                 ))}
               </div>
-              <div className="md:block hidden">
-                <h2 className=" md:text-3xl font-bold mt-6">
-                  A 6-Day Trek on Kilimanjaro's Machame Route 🏔️⛺️👢
-                </h2>
-              </div>
-              
+
             </div>
           </div>
 
           <div className="hidden md:block grid-cols-1">
-
             <div className="bg-[#F5943C] rounded-lg shadow-lg">
               <div className="p-4">
                 <h3 className="text-sm md:text-2xl font-bold text-white text-center">
@@ -75,33 +75,31 @@ function HeroSection() {
                 <div className="flex items-center gap-3 bg-white/80 p-3 rounded-lg">
                   <Phone className="text-[#8B1D3D]" />
                   <span>
-                    <div className="text-sm">Hi</div>
-                    <div className="text-lg">76544</div>
+                    <div className="text-sm">Call</div>
+                    <div className="text-lg">0572227400</div>
                   </span>
                 </div>
                 <div className="flex items-center gap-3 bg-white/80 p-3 rounded-lg">
                   <Phone className="text-[#8B1D3D]" />
                   <span>
-                    <div className="text-sm">Hi</div>
-                    <div className="text-lg">76544</div>
+                    <div className="text-sm">Whatsapp</div>
+                    <div className="text-lg">0775007777</div>
                   </span>
                 </div>
                 <div className="flex items-center gap-3 bg-white/80 p-3 rounded-lg">
                   <Phone className="text-[#8B1D3D]" />
                   <span>
-                    <div className="text-sm">Hi</div>
-                    <div className="text-lg">76544</div>
+                    <div className="text-sm">Email</div>
+                    <div className="text-lg">info@wanderquest.com</div>
                   </span>
                 </div>
               </CardContent>
             </Card>
 
-
             <div className="bg-[#F5943C] p-4 rounded-lg mt-4">
-              <div className="text-white">Check Availability M</div>
-              <DatePickerWithRange className=''/>
+              <div className="text-white">Check Availability</div>
+              <DatePickerWithRange className="" />
             </div>
-
           </div>
 
           <div className="block md:hidden">
@@ -152,13 +150,13 @@ function HeroSection() {
             </Card>
 
             <div className="bg-[#F5943C] p-4 rounded-lg mt-4">
-              <div className="text-white">Check Availability</div>
+              <DatePickerWithRange className="" />
             </div>
           </div>
         </div>
       </section>
     </>
-  )
+  );
 }
 
 export default HeroSection
