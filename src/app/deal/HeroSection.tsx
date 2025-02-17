@@ -3,6 +3,7 @@ import React , { useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Phone } from "lucide-react";
 import Image from 'next/image';
+import { DatePickerWithRange } from './CheckAvailability';
 
 
 
@@ -47,6 +48,12 @@ function HeroSection() {
                   </button>
                 ))}
               </div>
+              <div className="md:block hidden">
+                <h2 className=" md:text-3xl font-bold mt-6">
+                  A 6-Day Trek on Kilimanjaro's Machame Route 🏔️⛺️👢
+                </h2>
+              </div>
+              
             </div>
           </div>
 
@@ -91,7 +98,8 @@ function HeroSection() {
 
 
             <div className="bg-[#F5943C] p-4 rounded-lg mt-4">
-              <div className="text-white">Check Availability</div>
+              <div className="text-white">Check Availability M</div>
+              <DatePickerWithRange className=''/>
             </div>
 
           </div>
