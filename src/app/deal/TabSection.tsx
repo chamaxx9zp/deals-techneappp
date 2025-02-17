@@ -3,13 +3,20 @@ import React from 'react'
 import { useEffect, useRef, useState } from "react"
 import { Eye, Flame, Home, MapPin, Car, ChevronLeft, ChevronRight } from "lucide-react"
 import Image from 'next/image';
+import Highlight from './TabSections/Highlight';
+import Accommodation from './TabSections/Accommodation';
+import Overview from './TabSections/Overview';
+import Design from './TabSections/Design';
+import Destination from './TabSections/Destination';
+import Excursion from './TabSections/Excursion';
 
 const tabs = [
     { id: "overview", label: "Overview", icon: Eye },
     { id: "highlights", label: "Highlights", icon: Flame },
-    { id: "accommodations", label: "Accommodations", icon: Home },
+    { id: "accommodations", label: "Iterations", icon: Home },
     { id: "destination", label: "Destination", icon: MapPin },
     { id: "excursions", label: "Excursions", icon: Car },
+    { id: "design", label: "Designs", icon: Car },
   ]
 
 function TabSection() {
@@ -109,106 +116,20 @@ function TabSection() {
               </div>
 
               <div className="max-w-7xl mx-auto px-4 py-8 bg-[#FAF3E9] shadow-lg rounded-lg">
-                <section
-                  ref={(el) => (sectionsRef.current.overview = el)}
-                  className="pb-8"
-                >
-                  <h2 className="text-4xl font-bold text-[#E85D24] mb-8">
-                    Overview
-                  </h2>
-                  <p className="text-lg text-gray-600">
-                    Embark on an exhilarating 8-day tour with a 6-day trek on
-                    Mount Kilimanjaro's Machame Route, also known as the "Whisky
-                    Route" for its challenging terrain. Your journey begins with
-                    a stay at the luxurious Gran Meliá Arusha before you set off
-                    from Machame Gate into lush rainforests and stunning
-                    high-altitude landscapes. Experience the diverse
-                    environments,
-                  </p>
-                  <div className="mt-6">
-                    <video
-                      src="https://www.youtube.com/watch?v=fHCemviY06Y"
-                      className="w-full h-auto rounded-lg shadow-lg"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                    />
-                  </div>
-                </section>
-
-                <section
+                <Overview ref={(el) => (sectionsRef.current.overview = el)} />
+                <Highlight
                   ref={(el) => (sectionsRef.current.highlights = el)}
-                  className="min-h-screen pb-16"
-                >
-                  <h2 className="text-4xl font-bold text-[#E85D24] mb-8">
-                    HIGHLIGHTS
-                  </h2>
-
-                  <div className="grid md:grid-cols-2 gap-8 items-center">
-                    <div className="relative h-[400px] rounded-lg overflow-hidden">
-                      <Image
-                        src="https://images.unsplash.com/photo-1613425653628-23fd58c3c2b1?w=800&h=400&fit=crop"
-                        alt="Beach view with palm trees"
-                        fill
-                        className="object-cover rounded-lg"
-                      />
-                    </div>
-
-
-                    <div className="flex flex-col justify-between h-full">
-                      {[
-                        "Return flights",
-                        "Accommodation included",
-                        "7 Nights stay in Goa – 5 stars – Alila Diwa",
-                        "2km from Majorda Beach",
-                        "Mish Mar Restaurant is within 0.75 miles",
-                        "Mish Mar Restaurant is within 0.75 miles",
-                      ].map((highlight, index) => (
-                        <div key={index} className="flex items-start gap-2">
-                          <span className="text-pink-500 text-2xl">✻</span>
-                          <p className="text-lg">{highlight}</p>
-                        </div>
-                      ))}
-
-                      <div className="pt-6 w-full">
-                        <button className="bg-orange-500 text-white text-center w-full py-3 rounded-lg text-lg font-semibold transition hover:opacity-80">
-                          View more <span>➜</span>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-
-                <section
+                />
+                <Accommodation
                   ref={(el) => (sectionsRef.current.accommodations = el)}
-                  className="min-h-screen pb-16"
-                >
-                  <h2 className="text-4xl font-bold text-[#E85D24] mb-8">
-                    ACCOMMODATION
-                  </h2>
-                  <p className="text-2xl text-gray-700 mb-6">
-                    COMFORTABLE AND LUXURIOUS STAY
-                  </p>
-                </section>
-
-                <section
+                />
+                <Destination
                   ref={(el) => (sectionsRef.current.destination = el)}
-                  className="min-h-screen pb-16"
-                >
-                  <h2 className="text-4xl font-bold text-gray-800 mb-8">
-                    Destination
-                  </h2>
-                </section>
-
-                <section
+                />
+                <Excursion
                   ref={(el) => (sectionsRef.current.excursions = el)}
-                  className="min-h-screen pb-16"
-                >
-                  <h2 className="text-4xl font-bold text-gray-800 mb-8">
-                    Excursions
-                  </h2>
-                </section>
+                />
+                <Design ref={(el) => (sectionsRef.current.design = el)} />
               </div>
             </div>
           </div>
