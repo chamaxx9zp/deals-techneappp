@@ -1,27 +1,24 @@
-'use client'
-import React , { useState } from 'react'
+"use client";
+import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Phone } from "lucide-react";
-import Image from 'next/image';
-import { DatePickerWithRange } from './CheckAvailability';
-
-
+import Image from "next/image";
+import { DatePickerWithRange } from "./CheckAvailability";
 
 const images = [
-    "https://images.unsplash.com/photo-1589553416260-f586c8f1514f?w=800&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1613425653628-23fd58c3c2b1?w=800&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1530076886461-ce58ea8abe24?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZnJlZSUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D",
-  ];
-
-
+  "https://images.unsplash.com/photo-1589553416260-f586c8f1514f?w=800&h=400&fit=crop",
+  "https://images.unsplash.com/photo-1613425653628-23fd58c3c2b1?w=800&h=400&fit=crop",
+  "https://images.unsplash.com/photo-1530076886461-ce58ea8abe24?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZnJlZSUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D",
+];
 
 function HeroSection() {
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   return (
     <>
       <section className="px-4 md:px-10 mt-24">
         <div className="grid md:grid-cols-3 grid-cols-1 gap-5">
+          {/* Hero Image section */}
           <div className="md:col-span-2">
             <div className="overflow-hidden rounded-lg">
               <div className="md:block hidden">
@@ -54,10 +51,10 @@ function HeroSection() {
                   </button>
                 ))}
               </div>
-
             </div>
           </div>
 
+          {/* desktop only Hero section right side */}
           <div className="hidden md:block grid-cols-1">
             <div className="bg-[#F5943C] rounded-lg shadow-lg">
               <div className="p-4">
@@ -102,6 +99,7 @@ function HeroSection() {
             </div>
           </div>
 
+          {/* Mobile Only */}
           <div className="block md:hidden">
             <div className="flex">
               <div className="w-2/3">
@@ -128,22 +126,22 @@ function HeroSection() {
                 <div className="flex items-center gap-3 bg-white/80 p-3 rounded-lg">
                   <Phone className="text-[#8B1D3D]" />
                   <span>
-                    <div className="text-sm">Hi</div>
-                    <div className="text-lg">76544</div>
+                    <div className="text-sm">Call</div>
+                    <div className="text-lg">0572227400</div>
                   </span>
                 </div>
                 <div className="flex items-center gap-3 bg-white/80 p-3 rounded-lg">
                   <Phone className="text-[#8B1D3D]" />
                   <span>
-                    <div className="text-sm">Hi</div>
-                    <div className="text-lg">76544</div>
+                    <div className="text-sm">Whatsapp</div>
+                    <div className="text-lg">0775007777</div>
                   </span>
                 </div>
                 <div className="flex items-center gap-3 bg-white/80 p-3 rounded-lg">
                   <Phone className="text-[#8B1D3D]" />
                   <span>
-                    <div className="text-sm">Hi</div>
-                    <div className="text-lg">76544</div>
+                    <div className="text-sm">Email</div>
+                    <div className="text-lg">info@wanderquest.com</div>
                   </span>
                 </div>
               </CardContent>
@@ -159,4 +157,4 @@ function HeroSection() {
   );
 }
 
-export default HeroSection
+export default HeroSection;

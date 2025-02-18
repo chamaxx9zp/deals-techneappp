@@ -9,6 +9,8 @@ import Overview from './TabSections/Overview';
 import Design from './TabSections/Design';
 import Destination from './TabSections/Destination';
 import Excursion from './TabSections/Excursion';
+import HotelList from './HotelList';
+
 
 const tabs = [
     { id: "overview", label: "Overview", icon: Eye },
@@ -132,6 +134,11 @@ function TabSection() {
                 <Design ref={(el) => (sectionsRef.current.design = el)} />
               </div>
             </div>
+          </div>
+          <div className="relative">
+          <div className="sticky top-[74px]">
+            <HotelList/>
+          </div>
           </div>
         </div>
       </section>
