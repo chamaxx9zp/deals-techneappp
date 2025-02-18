@@ -11,8 +11,12 @@ const images = [
   "https://images.unsplash.com/photo-1530076886461-ce58ea8abe24?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZnJlZSUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D",
 ];
 
-function HeroSection() {
+function HeroSection({ deal }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const imageBaseUrl = "https://cdn.techneapp-staging.site/";
+  const images = deal?.heroImages?.map((img) => `${imageBaseUrl}${img.path}`) || [];
+  console.log(images)
+
 
   return (
     <>
@@ -23,7 +27,7 @@ function HeroSection() {
             <div className="overflow-hidden rounded-lg">
               <div className="md:block hidden">
                 <h2 className=" md:text-3xl font-bold mb-4">
-                  A 6-Day Trek on Kilimanjaro's Machame Route 🏔️⛺️👢
+                {deal?.title || "Travel Adventure Awaits!"}
                 </h2>
               </div>
 

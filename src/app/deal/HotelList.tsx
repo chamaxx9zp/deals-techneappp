@@ -38,11 +38,11 @@ export default function HotelList() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto p-6">
+    <div className="max-w-2xl mx-auto">
       <div className="bg-white rounded-2xl shadow-sm">
-        <div className="p-6">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-gray-900">Included Hotel</h2>
+        <div className="p-2">
+          <div className="flex items-center justify-between mb-6 bg-[#e05422] p-2 rounded-lg">
+            <h2 className="text-2xl font-bold text-white">Included Hotel</h2>
             <div className="flex gap-2">
               <button
                 onClick={prevHotel}

@@ -136,7 +136,7 @@ function TabSection() {
             </div>
           </div>
           <div className="relative">
-          <div className="sticky top-[74px]">
+          <div className="sticky top-[90px]">
             <HotelList/>
           </div>
           </div>
