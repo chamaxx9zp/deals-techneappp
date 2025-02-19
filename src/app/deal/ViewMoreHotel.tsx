@@ -25,7 +25,7 @@ function ViewMoreHotel({hotel}) {
       {isDesktop ? (
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogTrigger asChild>
-            <Button className="bg-orange-500 text-white text-center w-full py-3 rounded-lg text-lg font-semibold transition hover:bg-[#8B1D3D]">
+            <Button className="bg-orange-500 text-white text-center w-full py-3 rounded-lg text-lg font-semibold transition hover:bg-[#8B1D3D] mb-4">
               View more <span>➜</span>
             </Button>
           </DialogTrigger>

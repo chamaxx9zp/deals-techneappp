@@ -22,6 +22,33 @@ export default function HotelList({ hotels }) {
     setCurrentImageIndex((prev) => (prev - 1 + hotel.images.length) % hotel.images.length);
   };
 
+  const truncateHTML = (htmlString: string, maxLength: number) => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlString, "text/html");
+
+    let charCount = 0;
+    let truncatedContent = "";
+
+    const traverseNodes = (node) => {
+      if (charCount >= maxLength) return;
+
+      if (node.nodeType === Node.TEXT_NODE) {
+        let remainingChars = maxLength - charCount;
+        truncatedContent += node.textContent.slice(0, remainingChars);
+        charCount += node.textContent.length;
+      } else if (node.nodeType === Node.ELEMENT_NODE) {
+        let tag = node.tagName.toLowerCase();
+        truncatedContent += `<${tag}>`;
+        node.childNodes.forEach(traverseNodes);
+        truncatedContent += `</${tag}>`;
+      }
+    };
+
+    doc.body.childNodes.forEach(traverseNodes);
+
+    return truncatedContent + (charCount >= maxLength ? "" : "");
+  };
+
   return (
     <div className="mx-auto">
       <div className="bg-white rounded-2xl shadow-sm">
@@ -73,9 +100,18 @@ export default function HotelList({ hotels }) {
             ))}
           </div>
 
-          <div className="text-gray-700">
-            <p>{hotel.description.substring(0, 280)}...</p>
+<div className="text-gray-800">
+      {hotels.map((hotel, index) => {
+        const truncatedDescription = truncateHTML(hotel.description, 280);
+
+        return (
+          <div key={index}>
+            <h3 className="text-xl font-bold">{hotel.name}</h3>
+            <div dangerouslySetInnerHTML={{ __html: truncatedDescription }} />
           </div>
+        );
+      })}
+    </div>      
 
           <ViewMoreHotel hotel={hotel} />
         </div>
