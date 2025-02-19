@@ -6,8 +6,8 @@ import Image from 'next/image';
 import Highlight from './TabSections/Highlight';
 import Accommodation from './TabSections/Accommodation';
 import Overview from './TabSections/Overview';
-import Design from './TabSections/Payment';
-import Destination from './TabSections/Holiday';
+import Holiday from './TabSections/Holiday';
+import Payment from './TabSections/Payment';
 import Excursion from './TabSections/Excursion';
 import HotelList from './HotelList';
 
@@ -15,10 +15,11 @@ import HotelList from './HotelList';
 const tabs = [
     { id: "overview", label: "Overview", icon: Eye },
     { id: "highlights", label: "Highlights", icon: Flame },
-    { id: "accommodations", label: "Iterations", icon: Home },
-    { id: "destination", label: "Holiday", icon: MapPin },
+    { id: "iteration", label: "Iterations", icon: Home },
+    { id: "holiday", label: "Holiday", icon: MapPin },
     { id: "excursions", label: "Excursions", icon: Car },
-    { id: "design", label: "Payment", icon: Car },
+    { id: "payment", label: "Payment", icon: Car },
+    
   ]
 
 function TabSection({deal}) {
@@ -118,28 +119,39 @@ function TabSection({deal}) {
               </div>
 
               <div className="max-w-7xl mx-auto px-4 py-8 bg-[#FAF3E9] shadow-lg rounded-lg">
-                <Overview ref={(el) => (sectionsRef.current.overview = el)} overview={deal.overview}/>
+                <Overview
+                  ref={(el) => (sectionsRef.current.overview = el)}
+                  overview={deal.overview}
+                />
                 <Highlight
-  ref={(el) => (sectionsRef.current.highlights = el)}
-  highlight={deal.highlight}
-/>
+                  ref={(el) => (sectionsRef.current.highlights = el)}
+                  highlight={deal.highlight}
+                />
 
                 <Accommodation
-                  ref={(el) => (sectionsRef.current.accommodations = el)}
+                  ref={(el) => (sectionsRef.current.iteration = el)}
                 />
-                <Destination ref={(el) => (sectionsRef.current.destination = el)} holiday={deal.holidays} />
+                <Holiday
+                  ref={(el) => (sectionsRef.current.holiday = el)}
+                  holiday={deal.holidays}
+                />
 
-                <Excursion ref={(el) => (sectionsRef.current.excursions = el)} excursions={deal.excursions} />
+                <Excursion
+                  ref={(el) => (sectionsRef.current.excursions = el)}
+                  excursions={deal.excursions}
+                />
 
-                <Design ref={(el) => (sectionsRef.current.design = el)} payment={deal.payment} />
-
+                <Payment
+                  ref={(el) => (sectionsRef.current.payment = el)}
+                  payment={deal.payment}
+                />
               </div>
             </div>
           </div>
           <div className="relative">
-          <div className="sticky top-[90px]">
-            <HotelList hotels={deal?.hotels || []}/>
-          </div>
+            <div className="sticky top-[90px]">
+              <HotelList hotels={deal?.hotels || []} />
+            </div>
           </div>
         </div>
       </section>
