@@ -1,19 +1,40 @@
-import React from 'react'
+import React, { forwardRef } from "react";
+import Image from "next/image";
 
-const Excursion = React.forwardRef<HTMLDivElement>((_, ref) => {
+function Excursion(props, ref) {
+  const { excursions } = props;
+
+  if (!excursions) return null; // Prevent rendering if data is missing
+
   return (
-    <>
-        <section
-                  ref={ref}
-                  className="min-h-screen pb-16"
-                >
-                  <h2 className="text-4xl font-bold text-gray-800 mb-8">
-                    Excursions
-                  </h2>
-                </section> 
-    </>
-  )
-}
-)
+    <section ref={ref} className="pb-16">
+      <h2 className="text-4xl font-bold text-gray-800 mb-8">Excursions</h2>
 
-export default Excursion
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        {/* Left Side - Static Image */}
+        <div className="relative w-full h-[300px] md:h-[400px]">
+          <Image
+            src="https://images.pexels.com/photos/235837/pexels-photo-235837.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            alt="Excursion"
+            fill
+            className="object-cover rounded-lg"
+          />
+        </div>
+
+        {/* Right Side - Excursion Description */}
+        <div>
+          <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+            Available Excursions
+          </h3>
+          <div
+            className="text-lg text-gray-600"
+            dangerouslySetInnerHTML={{ __html: excursions }}
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Wrap with forwardRef
+export default forwardRef(Excursion);

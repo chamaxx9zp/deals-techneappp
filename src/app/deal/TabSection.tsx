@@ -127,9 +127,8 @@ function TabSection({deal}) {
                 />
                 <Destination ref={(el) => (sectionsRef.current.destination = el)} holiday={deal.holidays} />
 
-                <Excursion
-                  ref={(el) => (sectionsRef.current.excursions = el)}
-                />
+                <Excursion ref={(el) => (sectionsRef.current.excursions = el)} excursions={deal.excursions} />
+
                 <Design ref={(el) => (sectionsRef.current.design = el)} />
               </div>
             </div>
