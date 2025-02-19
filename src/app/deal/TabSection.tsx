@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import { useEffect, useRef, useState } from "react"
-import { Eye, Flame, Home, MapPin, Car, ChevronLeft, ChevronRight } from "lucide-react"
+import { Eye, Flame, Home, MapPin, Car, ChevronLeft, ChevronRight, Plane } from "lucide-react"
 import Image from 'next/image';
 import Highlight from './TabSections/Highlight';
 import Accommodation from './TabSections/Accommodation';
@@ -10,6 +10,7 @@ import Holiday from './TabSections/Holiday';
 import Payment from './TabSections/Payment';
 import Excursion from './TabSections/Excursion';
 import HotelList from './HotelList';
+import Travel from './TabSections/Travel';
 
 
 const tabs = [
@@ -18,6 +19,7 @@ const tabs = [
     { id: "iteration", label: "Iterations", icon: Home },
     { id: "holiday", label: "Holiday", icon: MapPin },
     { id: "excursions", label: "Excursions", icon: Car },
+    { id: "travel", label: "Travel", icon: Plane },
     { id: "payment", label: "Payment", icon: Car },
     
   ]
@@ -140,11 +142,14 @@ function TabSection({deal}) {
                   ref={(el) => (sectionsRef.current.excursions = el)}
                   excursions={deal.excursions}
                 />
+                 <Travel ref={(el) => (sectionsRef.current.travel = el)} dealDestinations={deal.dealDestinations} />
 
                 <Payment
                   ref={(el) => (sectionsRef.current.payment = el)}
                   payment={deal.payment}
                 />
+               
+
               </div>
             </div>
           </div>

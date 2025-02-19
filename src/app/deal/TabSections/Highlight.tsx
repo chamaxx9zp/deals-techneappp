@@ -20,7 +20,7 @@ const Highlight = forwardRef(function Highlight(props, ref) {
   return (
     <section ref={ref} className="pb-16">
       <h2 className="text-4xl font-bold text-[#E85D24] mb-8">
-        {highlight.caption || "HIGHLIGHTS"}
+        HIGHLIGHTS
       </h2>
 
       <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -35,7 +35,11 @@ const Highlight = forwardRef(function Highlight(props, ref) {
         </div>
 
         {/* Right Side - Dynamic Highlights List */}
+        
         <div className="flex flex-col h-full">
+        <h2 className="text-2xl font-bold text-black mb-8">
+        {highlight.caption || "HIGHLIGHTS"}
+      </h2>
           {highlightsList.map((item, index) => (
             <div key={index} className="flex items-start gap-2">
               <span className="text-pink-500 text-2xl">✻</span>

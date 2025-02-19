@@ -26,6 +26,7 @@ function Excursion(props, ref) {
           <h3 className="text-2xl font-semibold text-gray-900 mb-4">
             Available Excursions
           </h3>
+          
           <div
             className="text-lg text-gray-600"
             dangerouslySetInnerHTML={{ __html: excursions }}

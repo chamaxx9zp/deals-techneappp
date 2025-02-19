@@ -32,7 +32,7 @@ function Holiday(props, ref) {
           />
           <div className="flex-grow"></div>
           <p className="mt-4 md:text-2xl text-xl font-semibold text-orange-500">
-            From £{holiday[0].holiday.pricePerPerson} per person
+            From £{holiday[0].holiday.pricePerPerson} PP
           </p>
         </div>
         
