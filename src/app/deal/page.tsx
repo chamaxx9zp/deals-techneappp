@@ -33,7 +33,7 @@ function Page() {
     <>
       <Navbar />
       <HeroSection deal={deal} />
-      <TabSection/>
+      <TabSection deal={deal} />
       <Footer/>
 
     </>

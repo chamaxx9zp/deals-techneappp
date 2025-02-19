@@ -16,12 +16,12 @@ const tabs = [
     { id: "overview", label: "Overview", icon: Eye },
     { id: "highlights", label: "Highlights", icon: Flame },
     { id: "accommodations", label: "Iterations", icon: Home },
-    { id: "destination", label: "Destination", icon: MapPin },
+    { id: "destination", label: "Holiday", icon: MapPin },
     { id: "excursions", label: "Excursions", icon: Car },
     { id: "design", label: "Designs", icon: Car },
   ]
 
-function TabSection() {
+function TabSection({deal}) {
 
   const [activeTab, setActiveTab] = useState("overview")
   const tabsRef = useRef<HTMLDivElement>(null)
@@ -63,7 +63,7 @@ function TabSection() {
   return (
     <>
       <section className="px-4 md:px-10 pt-4">
-        <div className="grid md:grid-cols-3 grid-cols-1">
+        <div className="grid md:grid-cols-3 grid-cols-1 gap-5">
           <div className="col-span-2">
             <div className="min-h-screen bg-gray-50">
               <div className="sticky top-[74px] md:top-[88px] z-50 backdrop-blur-2xl bg-[#8B1D3D]/10 rounded-lg">
@@ -118,7 +118,7 @@ function TabSection() {
               </div>
 
               <div className="max-w-7xl mx-auto px-4 py-8 bg-[#FAF3E9] shadow-lg rounded-lg">
-                <Overview ref={(el) => (sectionsRef.current.overview = el)} />
+                <Overview ref={(el) => (sectionsRef.current.overview = el)} overview={deal.overview}/>
                 <Highlight
                   ref={(el) => (sectionsRef.current.highlights = el)}
                 />
@@ -137,7 +137,7 @@ function TabSection() {
           </div>
           <div className="relative">
           <div className="sticky top-[90px]">
-            <HotelList/>
+            <HotelList hotels={deal?.hotels || []}/>
           </div>
           </div>
         </div>

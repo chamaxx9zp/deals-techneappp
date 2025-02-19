@@ -4,19 +4,19 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Phone } from "lucide-react";
 import Image from "next/image";
 import { DatePickerWithRange } from "./CheckAvailability";
+import PriceCard from "./HeroSecComponents/PriceCard";
+import ContactUsCard from "./HeroSecComponents/ContactUsCard";
 
-const images = [
-  "https://images.unsplash.com/photo-1589553416260-f586c8f1514f?w=800&h=400&fit=crop",
-  "https://images.unsplash.com/photo-1613425653628-23fd58c3c2b1?w=800&h=400&fit=crop",
-  "https://images.unsplash.com/photo-1530076886461-ce58ea8abe24?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZnJlZSUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D",
-];
+// const images = [
+//   "https://images.unsplash.com/photo-1589553416260-f586c8f1514f?w=800&h=400&fit=crop",
+//   "https://images.unsplash.com/photo-1613425653628-23fd58c3c2b1?w=800&h=400&fit=crop",
+//   "https://images.unsplash.com/photo-1530076886461-ce58ea8abe24?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZnJlZSUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D",
+// ];
 
 function HeroSection({ deal }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const imageBaseUrl = "https://cdn.techneapp-staging.site/";
   const images = deal?.heroImages?.map((img) => `${imageBaseUrl}${img.path}`) || [];
-  console.log(images)
-
 
   return (
     <>
@@ -25,9 +25,9 @@ function HeroSection({ deal }) {
           {/* Hero Image section */}
           <div className="md:col-span-2">
             <div className="overflow-hidden rounded-lg">
-              <div className="md:block hidden">
-                <h2 className=" md:text-3xl font-bold mb-4">
-                {deal?.title || "Travel Adventure Awaits!"}
+              <div className="">
+                <h2 className=" md:text-4xl font-bold mb-4">
+                {deal?.title || "hero title"}
                 </h2>
               </div>
 
@@ -39,6 +39,7 @@ function HeroSection({ deal }) {
                   className="object-cover rounded-lg"
                 />
               </div>
+
               <div className="mt-4 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2 md:gap-4 overflow-x-auto">
                 {images.map((img, index) => (
                   <button
@@ -55,50 +56,19 @@ function HeroSection({ deal }) {
                   </button>
                 ))}
               </div>
+              
             </div>
           </div>
 
           {/* desktop only Hero section right side */}
           <div className="hidden md:block grid-cols-1">
-            <div className="bg-[#F5943C] rounded-lg shadow-lg">
-              <div className="p-4">
-                <h3 className="text-sm md:text-2xl font-bold text-white text-center">
-                  $ 3449 For Six Days
-                </h3>
-              </div>
-            </div>
 
-            <Card className="bg-[#FFE1B3] border-0 mt-6">
-              <CardHeader>
-                <CardTitle className="text-lg">Contact Us</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-2">
-                <div className="flex items-center gap-3 bg-white/80 p-3 rounded-lg">
-                  <Phone className="text-[#8B1D3D]" />
-                  <span>
-                    <div className="text-sm">Call</div>
-                    <div className="text-lg">0572227400</div>
-                  </span>
-                </div>
-                <div className="flex items-center gap-3 bg-white/80 p-3 rounded-lg">
-                  <Phone className="text-[#8B1D3D]" />
-                  <span>
-                    <div className="text-sm">Whatsapp</div>
-                    <div className="text-lg">0775007777</div>
-                  </span>
-                </div>
-                <div className="flex items-center gap-3 bg-white/80 p-3 rounded-lg">
-                  <Phone className="text-[#8B1D3D]" />
-                  <span>
-                    <div className="text-sm">Email</div>
-                    <div className="text-lg">info@wanderquest.com</div>
-                  </span>
-                </div>
-              </CardContent>
-            </Card>
+            <PriceCard price={deal?.price} farePrice={deal?.farePrice} />
 
-            <div className="bg-[#F5943C] p-4 rounded-lg mt-4">
-              <div className="text-white">Check Availability</div>
+            <ContactUsCard/>
+
+            <div className="bg-orange-500 p-4 rounded-lg mt-4">
+              <div className="text-white text-xl font-bold">Check Availability</div>
               <DatePickerWithRange className="" />
             </div>
           </div>
@@ -107,8 +77,8 @@ function HeroSection({ deal }) {
           <div className="block md:hidden">
             <div className="flex">
               <div className="w-2/3">
-                <h2 className="text-xl md:text-3xl font-bold mb-6">
-                  A 6-Day Trek on Kilimanjaro's Machame Route 🏔️⛺️👢
+                <h2 className=" md:text-3xl font-bold mb-4">
+                {deal?.title || "hero title"}
                 </h2>
               </div>
               <div className="w-1/3">
@@ -122,34 +92,7 @@ function HeroSection({ deal }) {
               </div>
             </div>
 
-            <Card className="bg-[#FFE1B3] border-0">
-              <CardHeader>
-                <CardTitle className="text-lg">Contact Us</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-2">
-                <div className="flex items-center gap-3 bg-white/80 p-3 rounded-lg">
-                  <Phone className="text-[#8B1D3D]" />
-                  <span>
-                    <div className="text-sm">Call</div>
-                    <div className="text-lg">0572227400</div>
-                  </span>
-                </div>
-                <div className="flex items-center gap-3 bg-white/80 p-3 rounded-lg">
-                  <Phone className="text-[#8B1D3D]" />
-                  <span>
-                    <div className="text-sm">Whatsapp</div>
-                    <div className="text-lg">0775007777</div>
-                  </span>
-                </div>
-                <div className="flex items-center gap-3 bg-white/80 p-3 rounded-lg">
-                  <Phone className="text-[#8B1D3D]" />
-                  <span>
-                    <div className="text-sm">Email</div>
-                    <div className="text-lg">info@wanderquest.com</div>
-                  </span>
-                </div>
-              </CardContent>
-            </Card>
+            <ContactUsCard/>
 
             <div className="bg-[#F5943C] p-4 rounded-lg mt-4">
               <DatePickerWithRange className="" />

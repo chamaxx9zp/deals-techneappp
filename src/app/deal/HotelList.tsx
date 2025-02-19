@@ -1,96 +1,85 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronLeft, ChevronRight, MapPin, Star } from "lucide-react"
+import { ChevronLeft, ChevronRight, Star } from "lucide-react"
 import Image from "next/image"
+import ViewMoreHotel from "./ViewMoreHotel"
 
-const hotels = [
-  {
-    name: "Fullmoon Villa Ubud",
-    location: "Jalan Jineng, Banjar Abiansemal",
-    rating: 4,
-    image:
-      "https://images.pexels.com/photos/30241292/pexels-photo-30241292/free-photo-of-elegant-parisian-street-with-classic-architecture.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load",
-  },
-  {
-    name: "Sunrise Resort Ubud",
-    location: "Jalan Raya Ubud",
-    rating: 5,
-    image: "https://images.pexels.com/photos/24807135/pexels-photo-24807135/free-photo-of-sunbeds-around-pool-in-summer-resort.jpeg?auto=compress&cs=tinysrgb&w=1200",
-  },
-  {
-    name: "Paradise Villa Bali",
-    location: "Jalan Paradise, Ubud",
-    rating: 4,
-    image: "https://images.pexels.com/photos/10973940/pexels-photo-10973940.jpeg?auto=compress&cs=tinysrgb&w=1200",
-  },
-]
 
-export default function HotelList() {
-  const [currentHotel, setCurrentHotel] = useState(0)
+const imageBaseUrl = "https://cdn.techneapp-staging.site/";
 
-  const nextHotel = () => {
-    setCurrentHotel((prev) => (prev + 1) % hotels.length)
-  }
+export default function HotelList({ hotels }) {
+  if (!hotels.length) return <p>No hotel available</p>;
 
-  const prevHotel = () => {
-    setCurrentHotel((prev) => (prev - 1 + hotels.length) % hotels.length)
-  }
+  const hotel = hotels[0];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % hotel.images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + hotel.images.length) % hotel.images.length);
+  };
 
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="mx-auto">
       <div className="bg-white rounded-2xl shadow-sm">
-        <div className="p-2">
-          <div className="flex items-center justify-between mb-6 bg-[#e05422] p-2 rounded-lg">
+        <div className="">
+          <div className="flex items-center justify-between mb-6 bg-[#e05422] py-4 px-4 rounded-lg">
             <h2 className="text-2xl font-bold text-white">Included Hotel</h2>
+
             <div className="flex gap-2">
               <button
-                onClick={prevHotel}
-                className="p-2 rounded-full border hover:bg-gray-50 transition-colors"
-                aria-label="Previous hotel"
+                onClick={prevImage}
+                className="p-2 rounded-full border bg-transparent hover:bg-white transition-colors w-12 h-12 flex items-center justify-center group"
+                aria-label="Previous image"
               >
-                <ChevronLeft className="w-6 h-6 text-gray-600" />
+                <ChevronLeft className="w-6 h-6 text-white transition-colors group-hover:text-black" />
               </button>
               <button
-                onClick={nextHotel}
-                className="p-2 rounded-full border hover:bg-gray-50 transition-colors"
-                aria-label="Next hotel"
+                onClick={nextImage}
+                className="p-2 rounded-full border bg-transparent hover:bg-white transition-colors w-12 h-12 flex items-center justify-center group"
+                aria-label="Next image"
               >
-                <ChevronRight className="w-6 h-6 text-gray-600" />
+                <ChevronRight className="w-6 h-6 text-white transition-colors group-hover:text-black" />
               </button>
             </div>
           </div>
 
           <div className="relative aspect-[3/2] rounded-xl overflow-hidden mb-6">
             <Image
-              src={hotels[currentHotel].image || "/placeholder.svg"}
-              alt={hotels[currentHotel].name}
+              src={
+                hotel.images[currentImageIndex]?.path
+                  ? `${imageBaseUrl}${hotel.images[currentImageIndex].path}`
+                  : "/placeholder.svg"
+              }
+              alt={hotel.name}
               fill
               className="object-cover"
             />
           </div>
 
-          <h3 className="text-xl font-semibold text-gray-900 mb-3">{hotels[currentHotel].name}</h3>
+          <h3 className="text-xl font-semibold text-gray-900 mb-3">
+            {hotel.name}
+          </h3>
 
           <div className="flex gap-1 mb-4">
-            {[...Array(hotels[currentHotel].rating)].map((_, i) => (
-              <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+            {Array.from({ length: Number(hotel.rating) }).map((_, index) => (
+              <Star
+                key={index}
+                className="w-5 h-5 fill-yellow-400 text-yellow-400"
+              />
             ))}
           </div>
 
-          <div className="flex items-center gap-2 text-gray-600 mb-6">
-            <MapPin className="w-5 h-5" />
-            <span>{hotels[currentHotel].location}</span>
+          <div className="text-gray-700">
+            <p>{hotel.description.substring(0, 280)}...</p>
           </div>
 
-          <div className="bg-[#FDF7E7] border border-[#E5C57A] rounded-lg p-4">
-            <p className="text-[#9E6C24]">
-              Note: Our agents will provide you these or similar hotels depending on availability
-            </p>
-          </div>
+          <ViewMoreHotel hotel={hotel} />
         </div>
       </div>
     </div>
-  )
+  );
 }
-
