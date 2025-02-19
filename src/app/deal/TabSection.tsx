@@ -6,8 +6,8 @@ import Image from 'next/image';
 import Highlight from './TabSections/Highlight';
 import Accommodation from './TabSections/Accommodation';
 import Overview from './TabSections/Overview';
-import Design from './TabSections/Design';
-import Destination from './TabSections/Destination';
+import Design from './TabSections/Payment';
+import Destination from './TabSections/Holiday';
 import Excursion from './TabSections/Excursion';
 import HotelList from './HotelList';
 
@@ -18,7 +18,7 @@ const tabs = [
     { id: "accommodations", label: "Iterations", icon: Home },
     { id: "destination", label: "Holiday", icon: MapPin },
     { id: "excursions", label: "Excursions", icon: Car },
-    { id: "design", label: "Designs", icon: Car },
+    { id: "design", label: "Payment", icon: Car },
   ]
 
 function TabSection({deal}) {
@@ -120,8 +120,10 @@ function TabSection({deal}) {
               <div className="max-w-7xl mx-auto px-4 py-8 bg-[#FAF3E9] shadow-lg rounded-lg">
                 <Overview ref={(el) => (sectionsRef.current.overview = el)} overview={deal.overview}/>
                 <Highlight
-                  ref={(el) => (sectionsRef.current.highlights = el)}
-                />
+  ref={(el) => (sectionsRef.current.highlights = el)}
+  highlight={deal.highlight}
+/>
+
                 <Accommodation
                   ref={(el) => (sectionsRef.current.accommodations = el)}
                 />
@@ -129,7 +131,8 @@ function TabSection({deal}) {
 
                 <Excursion ref={(el) => (sectionsRef.current.excursions = el)} excursions={deal.excursions} />
 
-                <Design ref={(el) => (sectionsRef.current.design = el)} />
+                <Design ref={(el) => (sectionsRef.current.design = el)} payment={deal.payment} />
+
               </div>
             </div>
           </div>

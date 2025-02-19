@@ -36,7 +36,7 @@ function HeroSection({ deal }) {
                   src={images[currentImageIndex]}
                   alt="Kilimanjaro"
                   fill
-                  className="object-cover rounded-lg"
+                  className="object-cover rounded-lg shadow-lg"
                 />
               </div>
 
@@ -51,7 +51,7 @@ function HeroSection({ deal }) {
                       src={img}
                       alt={`Thumbnail ${index + 1}`}
                       fill
-                      className="object-cover"
+                      className="object-cover shadow-lg"
                     />
                   </button>
                 ))}
