@@ -7,8 +7,8 @@ function Holiday(props, ref) {
   if (!holiday || holiday.length === 0) return null; 
 
   return (
-    <section ref={ref} className="py-4 pb-16">
-      <h2 className="text-4xl font-bold  text-[#E85D24] mb-8">Holiday</h2>
+    <section ref={ref} className="py-4 pb-8">
+      <h2 className="text-4xl font-bold  text-[#E85D24] pb-5">Holiday</h2>
 
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">

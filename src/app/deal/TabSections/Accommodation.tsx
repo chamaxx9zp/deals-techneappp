@@ -97,8 +97,8 @@ const Accommodation = React.forwardRef<HTMLDivElement>((_, ref) => {
 
   return (
     <>
-      <section ref={ref} className="pb-16">
-        <h2 className="text-4xl font-bold text-[#E85D24] mb-8">Itinerary</h2>
+      <section ref={ref} className="pb-8">
+        <h2 className="text-4xl font-bold text-[#E85D24] pb-5">Itinerary</h2>
         <p className="text-xl text-gray-700 mb-6">COMFORTABLE AND LUXURIOUS STAY</p>
 
         {/* Day selector */}
