@@ -26,7 +26,7 @@ function HeroSection({ deal }) {
           <div className="md:col-span-2">
             <div className="overflow-hidden rounded-lg">
               <div className="">
-                <h2 className=" md:text-4xl font-bold mb-4">
+                <h2 className=" md:text-4xl text-2xl font-bold mb-4">
                 {deal?.title || "hero title"}
                 </h2>
               </div>
@@ -75,22 +75,8 @@ function HeroSection({ deal }) {
 
           {/* Mobile Only */}
           <div className="block md:hidden">
-            <div className="flex">
-              <div className="w-2/3">
-                <h2 className=" md:text-3xl font-bold mb-4">
-                {deal?.title || "hero title"}
-                </h2>
-              </div>
-              <div className="w-1/3">
-                <div className="bg-[#F5943C] rounded-lg shadow-lg">
-                  <div className="p-4">
-                    <h3 className="text-sm md:text-2xl font-bold text-white text-center">
-                      $ 3449 For Six Days
-                    </h3>
-                  </div>
-                </div>
-              </div>
-            </div>
+
+            <PriceCard price={deal?.price} farePrice={deal?.farePrice}/>
 
             <ContactUsCard/>
 

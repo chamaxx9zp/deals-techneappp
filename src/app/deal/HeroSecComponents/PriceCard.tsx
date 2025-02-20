@@ -9,10 +9,10 @@ const PriceCard = ({ price, farePrice }) => {
           <div className="space-y-2">
             <p className="text-lg line-through opacity-80">£{farePrice}  PP</p>
             <div className="space-y-1">
-              <p className="text-5xl font-bold">
+              <p className="text-4xl md:text-5xl font-bold">
                 <span className="text-3xl">fr </span>£{price} <span className="text-3xl">PP</span>
               </p>
-              <p className="text-xl tracking-wide">FOR A SINGLE PERSON</p>
+              <p className="md:text-xl text-base tracking-wide">FOR A SINGLE PERSON</p>
             </div>
           </div>
         </div>
