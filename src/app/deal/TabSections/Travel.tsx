@@ -40,11 +40,12 @@ const Travel = forwardRef(function Travel(props, ref) {
           </div>
         ))}
         </div>
+        <ViewMoreTravel techneDestinationSection={techneDestinationSection} />
         <div className="">
           <WeatherStatus/>
           
         </div>
-        <ViewMoreTravel techneDestinationSection={techneDestinationSection} />
+        
         
       </div>
       <div className="text-center md:hidden block text-sm border-t mt-6 border-orange-500 pt-4"></div>

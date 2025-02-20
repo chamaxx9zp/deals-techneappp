@@ -12,7 +12,7 @@ const PriceCard = ({ price, farePrice }) => {
               <p className="text-4xl md:text-5xl font-bold">
                 <span className="text-3xl">fr </span>£{price} <span className="text-3xl">PP</span>
               </p>
-              <p className="md:text-xl text-base tracking-wide">FOR A SINGLE PERSON</p>
+              <p className="md:text-xl text-base tracking-wide">For solo travelers</p>
             </div>
           </div>
         </div>

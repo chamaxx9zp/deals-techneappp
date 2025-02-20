@@ -1,4 +1,4 @@
-import { Cloud, Wind, Droplets, Eye, Gauge, Sun } from "lucide-react"
+import { Cloud, Wind, Droplets, Eye, Gauge, Sun, Snowflake } from "lucide-react"
 
 export default function WeatherStatus() {
   return (
@@ -25,8 +25,8 @@ export default function WeatherStatus() {
                   <span>Wind: 18 km/h NNE</span>
                 </div>
                 <div className="flex items-center gap-3 text-rose-200">
-                  <Wind className="w-5 h-5" />
-                  <span>Wind: 18 km/h NNE</span>
+                  <Snowflake className="w-5 h-5" />
+                  <span>29.2 km/h</span>
                 </div>
                 <div className="flex items-center gap-3 text-rose-200">
                   <Droplets className="w-5 h-5" />
