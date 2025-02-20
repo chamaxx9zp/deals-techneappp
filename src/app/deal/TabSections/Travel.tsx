@@ -1,6 +1,7 @@
 import React, { forwardRef } from "react";
 import Image from "next/image";
 import ViewMoreTravel from "./ViewMoreTravel";
+import WeatherStatus from "./WeatherStatus";
 
 const imageBaseUrl = "https://cdn.techneapp-staging.site/";
 
@@ -18,12 +19,12 @@ const Travel = forwardRef(function Travel(props, ref) {
     <section ref={ref} className="pb-8">
       <h2 className="text-4xl font-bold text-[#E85D24] pb-5">Travel Destinations</h2>
 
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid gap-4">
         <div className="">
         {dealDestinations.map((destination, index) => (
           <div key={index} className="">
             {/* Image with overlay text */}
-            <div className="relative w-full h-[250px] rounded-lg overflow-hidden">
+            <div className="relative w-full h-[250px] md:h[300px] rounded-lg overflow-hidden">
               <Image
                 src={`${imageBaseUrl}${destination.destination.image.path}`}
                 alt={destination.destination.image.alt || "Destination"}
@@ -40,8 +41,10 @@ const Travel = forwardRef(function Travel(props, ref) {
         ))}
         </div>
         <div className="">
-          <ViewMoreTravel techneDestinationSection={techneDestinationSection} />
+          <WeatherStatus/>
+          
         </div>
+        <ViewMoreTravel techneDestinationSection={techneDestinationSection} />
         
       </div>
     </section>
