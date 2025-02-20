@@ -137,23 +137,23 @@ function ViewMoreHotel({ hotel }) {
               View more <span>➜</span>
             </Button>
           </DrawerTrigger>
-          <DrawerContent>
+          <DrawerContent className="h-[650px] px-2">
             <DrawerHeader className="text-left">
               <DrawerTitle>More Information</DrawerTitle>
               <DrawerDescription>
                 Explore the details of your trip below.
               </DrawerDescription>
             </DrawerHeader>
-            <div className="flex flex-col gap-4 p-4">
+            <div className="flex flex-col gap-4">
               {/* Mobile: Image Gallery Section */}
-              <div className="relative w-full h-[300px]">
+              <div className="relative w-full h-[250px]">
                 <Image
                   src={images[currentImageIndex]}
                   alt={hotel.name}
                   fill
                   className="object-cover rounded-lg"
                 />
-                <div className="absolute inset-0 flex justify-between items-center p-2">
+                {/* <div className="absolute inset-0 flex justify-between items-center p-2">
                   <button
                     className="bg-white p-2 rounded-full shadow-md"
                     onClick={() =>
@@ -172,7 +172,7 @@ function ViewMoreHotel({ hotel }) {
                   >
                     <span className="text-gray-700">&gt;</span>
                   </button>
-                </div>
+                </div> */}
               </div>
 
               {/* Carousel Indicators */}
@@ -189,10 +189,10 @@ function ViewMoreHotel({ hotel }) {
               </div>
 
               {/* Description Section */}
-              <div>
+              <div className="h-[300px] mb-4">
                 <h3 className="text-2xl font-bold mb-4">{hotel.name}</h3>
                 <div
-                  className="text-lg text-gray-600"
+                  className="text-lg text-gray-600 overflow-y-auto max-h-[200px]"
                   dangerouslySetInnerHTML={{ __html: hotel.description }}
                 />
               </div>

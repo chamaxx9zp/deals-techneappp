@@ -51,7 +51,7 @@ export default function HotelList({ hotels }) {
   };
 
   return (
-    <div className="mx-auto">
+    <div className="mx-auto px-3 md:px-0">
       <div className="bg-white rounded-2xl shadow-sm">
 
           <div className="flex items-center justify-between mb-6 bg-[#e05422] py-4 px-4 rounded-lg">

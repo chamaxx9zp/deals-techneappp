@@ -65,8 +65,8 @@ function TabSection({deal}) {
   }, [])
   return (
     <>
-      <section className="px-4 md:px-10 pt-4">
-        <div className="grid md:grid-cols-3 grid-cols-1 gap-5">
+      <section className="px-0 md:px-10 pt-4">
+        <div className="grid md:grid-cols-3 grid-cols-1 md:gap-5">
           <div className="col-span-2">
             <div className="min-h-screen bg-gray-50">
               <div className="sticky top-[74px] md:top-[88px] z-50 backdrop-blur-2xl bg-[#8B1D3D]/10 rounded-lg">
