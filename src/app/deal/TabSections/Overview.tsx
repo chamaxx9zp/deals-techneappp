@@ -6,7 +6,7 @@ const Overview = React.forwardRef<HTMLDivElement, { overview: any }>(
     if (!overview) return null;
 
     return (
-      <section ref={ref} className="pb-8">
+      <section ref={ref} className="md:pb-5">
         <h2 className="text-4xl font-bold text-[#E85D24] pb-5">Overview</h2>
 
         <div
@@ -24,6 +24,8 @@ const Overview = React.forwardRef<HTMLDivElement, { overview: any }>(
             />
           </div>
         )}
+          <div className="text-center md:hidden block text-sm border-t mt-5 mb-2 border-orange-500 pt-4">
+        </div>
       </section>
     );
   }

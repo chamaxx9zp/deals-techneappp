@@ -7,7 +7,7 @@ function Payment(props, ref) {
   if (!payment) return null;
 
   return (
-    <section ref={ref} className="pb-8">
+    <section ref={ref} className="md:pb-8">
       <h2 className="text-4xl font-bold text-[#E85D24] pb-5">Payment</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -32,6 +32,8 @@ function Payment(props, ref) {
           />
         </div>
       </div>
+      <div className="text-center md:hidden block text-sm border-t mt-8 border-orange-500 pt-4"></div>
+
     </section>
   );
 }

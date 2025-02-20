@@ -7,7 +7,7 @@ function Holiday(props, ref) {
   if (!holiday || holiday.length === 0) return null; 
 
   return (
-    <section ref={ref} className="py-4 pb-8">
+    <section ref={ref} className="py-4 md:pb-8">
       <h2 className="text-4xl font-bold  text-[#E85D24] pb-5">Holiday</h2>
 
 
@@ -37,6 +37,8 @@ function Holiday(props, ref) {
         </div>
         
       </div>
+      <div className="text-center md:hidden block text-sm border-t mt-7 border-orange-500 pt-4"></div>
+
     </section>
   );
 }

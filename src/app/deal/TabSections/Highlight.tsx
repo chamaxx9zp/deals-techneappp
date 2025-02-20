@@ -18,7 +18,7 @@ const Highlight = forwardRef(function Highlight(props, ref) {
   const highlightsList = extractHighlights();
 
   return (
-    <section ref={ref} className="pb-8">
+    <section ref={ref} className="md:pb-8">
       <h2 className="text-4xl font-bold text-[#E85D24] pb-5">
         HIGHLIGHTS
       </h2>
@@ -52,6 +52,7 @@ const Highlight = forwardRef(function Highlight(props, ref) {
         
         </div>
       </div>
+      <div className="text-center md:hidden block text-sm border-t mt-5 mb-2 border-orange-500 pt-4"></div>
     </section>
   );
 });

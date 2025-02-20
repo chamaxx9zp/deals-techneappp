@@ -7,7 +7,7 @@ function Excursion(props, ref) {
   if (!excursions) return null;
 
   return (
-    <section ref={ref} className="pb-8">
+    <section ref={ref} className="md:pb-8">
       <h2 className="text-4xl font-bold text-[#E85D24] pb-5">Excursions</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -33,6 +33,7 @@ function Excursion(props, ref) {
           />
         </div>
       </div>
+      <div className="text-center md:hidden block text-sm border-t mt-5 mb-2 border-orange-500 pt-4"></div>
     </section>
   );
 }

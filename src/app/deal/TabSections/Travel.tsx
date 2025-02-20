@@ -16,7 +16,7 @@ const Travel = forwardRef(function Travel(props, ref) {
   }
 
   return (
-    <section ref={ref} className="pb-8">
+    <section ref={ref} className="md:pb-8">
       <h2 className="text-4xl font-bold text-[#E85D24] pb-5">Travel Destinations</h2>
 
       <div className="grid gap-4">
@@ -24,7 +24,7 @@ const Travel = forwardRef(function Travel(props, ref) {
         {dealDestinations.map((destination, index) => (
           <div key={index} className="">
             {/* Image with overlay text */}
-            <div className="relative w-full h-[250px] md:h[300px] rounded-lg overflow-hidden">
+            <div className="relative w-full h-[250px] md:h[400px] rounded-lg overflow-hidden">
               <Image
                 src={`${imageBaseUrl}${destination.destination.image.path}`}
                 alt={destination.destination.image.alt || "Destination"}
@@ -47,6 +47,8 @@ const Travel = forwardRef(function Travel(props, ref) {
         <ViewMoreTravel techneDestinationSection={techneDestinationSection} />
         
       </div>
+      <div className="text-center md:hidden block text-sm border-t mt-6 border-orange-500 pt-4"></div>
+
     </section>
   );
 });

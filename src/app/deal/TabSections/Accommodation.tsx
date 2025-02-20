@@ -97,7 +97,7 @@ const Accommodation = React.forwardRef<HTMLDivElement>((_, ref) => {
 
   return (
     <>
-      <section ref={ref} className="pb-8">
+      <section ref={ref} className="md:pb-8">
         <h2 className="text-4xl font-bold text-[#E85D24] pb-5">Itinerary</h2>
         <p className="text-xl text-gray-700 mb-6">COMFORTABLE AND LUXURIOUS STAY</p>
 
@@ -140,6 +140,8 @@ const Accommodation = React.forwardRef<HTMLDivElement>((_, ref) => {
             />
           </Card>
         )}
+              <div className="text-center md:hidden block text-sm border-t mt-9 border-orange-500 pt-4"></div>
+
       </section>
     </>
   )

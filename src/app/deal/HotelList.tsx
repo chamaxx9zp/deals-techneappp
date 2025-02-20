@@ -117,9 +117,9 @@ export default function HotelList({ hotels }) {
           </div>
         </div> */}
 
-          <h3 className="text-xl font-semibold text-gray-900 mb-3">
+          {/* <h3 className="text-xl font-semibold text-gray-900 mb-3">
             {hotel.name}
-          </h3>
+          </h3> */}
 
           <div className="flex gap-1 mb-4">
             {Array.from({ length: Number(hotel.rating) }).map((_, index) => (
